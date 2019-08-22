@@ -861,7 +861,7 @@ public class BuildJsonForYapi{
     public static void getCollect(KV kv,String classTypeName,String remark,PsiClass psiClass,Project project,String name,String pName,String[] childType,Integer index) {
         KV kvlist = new KV();
         if (NormalTypes.isNormalType(classTypeName) || NormalTypes.collectTypes.containsKey(classTypeName)) {
-            kvlist.set("type",classTypeName);
+            kvlist.set("type",TypeUtil.transform(classTypeName));
             if(!Strings.isNullOrEmpty(remark)) {
                 kvlist.set("description", remark);
             }

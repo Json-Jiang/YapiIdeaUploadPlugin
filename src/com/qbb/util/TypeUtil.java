@@ -11,6 +11,9 @@ public class TypeUtil {
         if ("long".equals(lower)) {
             return "number";
         }
+        if ("date".equals(lower)) {
+            return "string";
+        }
         return lower;
     }
 }
