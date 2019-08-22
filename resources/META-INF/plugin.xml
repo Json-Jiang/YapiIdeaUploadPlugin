@@ -90,6 +90,12 @@
       <em>
 
       </em>
+      zcy-定制:<br>
+      <em>
+        - long类型会转为number
+        - String 和 Integer，Long首字母会变成小写
+        - @炎杰
+      </em>
     ]]>
   </change-notes>
 

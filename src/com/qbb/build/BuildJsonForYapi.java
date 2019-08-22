@@ -26,6 +26,7 @@ import com.qbb.util.DesUtil;
 import com.qbb.util.FileToZipUtil;
 import com.qbb.util.FileUnZipUtil;
 import com.qbb.util.PsiAnnotationSearchUtil;
+import com.qbb.util.TypeUtil;
 import org.codehaus.jettison.json.JSONException;
 
 import java.io.File;
@@ -728,7 +729,7 @@ public class BuildJsonForYapi{
         // 如果是基本类型
         if (type instanceof PsiPrimitiveType) {
             JsonObject jsonObject=new JsonObject();
-            jsonObject.addProperty("type",type.getPresentableText());
+            jsonObject.addProperty("type",TypeUtil.transform(type.getPresentableText()));
             if(!Strings.isNullOrEmpty(remark)) {
                 jsonObject.addProperty("description", remark);
             }
@@ -739,7 +740,7 @@ public class BuildJsonForYapi{
             //normal Type
             if (NormalTypes.isNormalType(fieldTypeName)) {
                 JsonObject jsonObject=new JsonObject();
-                jsonObject.addProperty("type",fieldTypeName);
+                jsonObject.addProperty("type",TypeUtil.transform(fieldTypeName));
                 if(!Strings.isNullOrEmpty(remark)) {
                     jsonObject.addProperty("description", remark);
                 }
@@ -783,7 +784,7 @@ public class BuildJsonForYapi{
                 String deepTypeName = deepType.getPresentableText();
                 String cType="";
                 if (deepType instanceof PsiPrimitiveType) {
-                    kvlist.set("type",type.getPresentableText());
+                    kvlist.set("type",TypeUtil.transform(type.getPresentableText()));
                     if(!Strings.isNullOrEmpty(remark)) {
                         kvlist.set("description", remark);
                     }
