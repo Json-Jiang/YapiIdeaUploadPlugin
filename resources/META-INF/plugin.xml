@@ -94,6 +94,7 @@
       <em>
         - long类型会转为number
         - String 和 Integer，Long首字母会变成小写
+        - 修复方法无路径上传错误的问题，增加get方法视为字段的功能
         - @炎杰
       </em>
     ]]>
