@@ -5,6 +5,7 @@ import com.intellij.openapi.project.Project;
 import com.intellij.psi.JavaPsiFacade;
 import com.intellij.psi.PsiClass;
 import com.intellij.psi.PsiField;
+import com.intellij.psi.PsiJavaDocumentedElement;
 import com.intellij.psi.PsiMethod;
 import com.intellij.psi.impl.source.PsiClassImpl;
 import com.intellij.psi.impl.source.PsiJavaFileImpl;
@@ -167,7 +168,7 @@ public class DesUtil {
      * @author: chengsheng@qbb6.com
      * @date: 2019/5/18
      */
-    public static String getLinkRemark(String remark, Project project, PsiField field){
+    public static String getLinkRemark(String remark, Project project, PsiJavaDocumentedElement field){
         // 尝试获得@link 的常量定义
         if(Objects.isNull(field.getDocComment())){
             return remark;
@@ -233,7 +234,7 @@ public class DesUtil {
      * @author: chengsheng@qbb6.com
      * @date: 2019/7/2
      */ 
-    public static List<PsiClass> getFieldLinks(Project project,PsiField field){
+    public static List<PsiClass> getFieldLinks(Project project,PsiJavaDocumentedElement field){
         if(Objects.isNull(field.getDocComment())){
             return new ArrayList<>();
         }
